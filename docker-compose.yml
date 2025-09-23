@@ -1,0 +1,35 @@
+
+services:
+  db:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: fastapi_user
+      POSTGRES_PASSWORD: fastapi_pass
+      POSTGRES_DB: fastapi_auth
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fastapi_user -d fastapi_auth"]
+      interval: 5s
+      retries: 5
+
+
+  backend:
+    build: ./backend
+    restart: always
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8010 --reload
+    volumes:
+      - ./backend:/code
+    ports:
+      - "8010:8010"
+    depends_on:
+      db:
+        condition: service_healthy
+          
+
+volumes:
+  postgres_data:
