@@ -33,7 +33,10 @@ fastapi-auth-app/
 │── Dockerfile # Docker image setup for FastAPI
 │── README.md # Project documentation
 
-
+## 🚀 Live Demo
+- 🌍 Base URL: [https://fastapi-auth-app-qrvn.onrender.com](https://fastapi-auth-app-qrvn.onrender.com)  
+- 📑 Swagger Docs: [https://fastapi-auth-app-qrvn.onrender.com/docs](https://fastapi-auth-app-qrvn.onrender.com/docs)  
+- 🏠 Root Endpoint: [https://fastapi-auth-app-qrvn.onrender.com/](https://fastapi-auth-app-qrvn.onrender.com/)  
 
 🚀
 
